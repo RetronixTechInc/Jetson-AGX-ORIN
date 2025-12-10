@@ -113,8 +113,8 @@
 						status = "okay";
 						ar0234_vi_in8: endpoint {
 							vc-id = <0>;
-							port-index = <4>;
-							bus-width = <2>;
+							port-index = <2>;
+							bus-width = <4>;
 							remote-endpoint = <&ar0234_csi_out8>;
 							status = "okay";
 						};
@@ -124,8 +124,8 @@
 						status = "okay";
 						ar0234_vi_in9: endpoint {
 							vc-id = <1>;
-							port-index = <4>;
-							bus-width = <2>;
+							port-index = <2>;
+							bus-width = <4>;
 							remote-endpoint = <&ar0234_csi_out9>;
 							status = "okay";
 						};
@@ -135,8 +135,8 @@
 						status = "okay";
 						ar0234_vi_in10: endpoint {
 							vc-id = <2>;
-							port-index = <4>;
-							bus-width = <2>;
+							port-index = <2>;
+							bus-width = <4>;
 							remote-endpoint = <&ar0234_csi_out10>;
 							status = "okay";
 						};
@@ -146,8 +146,8 @@
 						status = "okay";
 						ar0234_vi_in11: endpoint {
 							vc-id = <3>;
-							port-index = <4>;
-							bus-width = <2>;
+							port-index = <2>;
+							bus-width = <4>;
 							remote-endpoint = <&ar0234_csi_out11>;
 							status = "okay";
 						};
@@ -378,8 +378,8 @@
 									reg = <0>;
 									status = "okay";
 									ar0234_csi_in8: endpoint@16 {
-										port-index = <4>;
-										bus-width = <2>;
+										port-index = <2>;
+										bus-width = <4>;
 										remote-endpoint = <&ar0234_ar0234_out8>;
 										status = "okay";
 									};
@@ -404,8 +404,8 @@
 									reg = <0>;
 									status = "okay";
 									ar0234_csi_in9: endpoint@18 {
-										port-index = <4>;
-										bus-width = <2>;
+										port-index = <2>;
+										bus-width = <4>;
 										remote-endpoint = <&ar0234_ar0234_out9>;
 										status = "okay";
 									};
@@ -430,8 +430,8 @@
 									reg = <0>;
 									status = "okay";
 									ar0234_csi_in10: endpoint@20 {
-										port-index = <4>;
-										bus-width = <2>;
+										port-index = <2>;
+										bus-width = <4>;
 										remote-endpoint = <&ar0234_ar0234_out10>;
 										status = "okay";
 									};
@@ -456,8 +456,8 @@
 									reg = <0>;
 									status = "okay";
 									ar0234_csi_in11: endpoint@22 {
-										port-index = <4>;
-										bus-width = <2>;
+										port-index = <2>;
+										bus-width = <4>;
 										remote-endpoint = <&ar0234_ar0234_out11>;
 										status = "okay";
 									};
@@ -492,7 +492,7 @@
 						use_sensor_mode_id = "true";
 						mode0 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
 							mclk_khz = "24000";
-							num_lanes = "2";
+							num_lanes = "4";
 							tegra_sinterface = "serial_e";
 							phy_mode = "CPHY";
 							vc_id = "0";
@@ -537,8 +537,8 @@
 								reg = <0>;
 								ar0234_ar0234_out8: endpoint {
 									vc-id = <0>;
-									port-index = <4>;
-									bus-width = <2>;
+									port-index = <2>;
+									bus-width = <4>;
 									remote-endpoint = <&ar0234_csi_in8>;
 								};
 							};
@@ -561,7 +561,7 @@
 						use_sensor_mode_id = "true";
 						mode0 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
 							mclk_khz = "24000";
-							num_lanes = "2";
+							num_lanes = "4";
 							tegra_sinterface = "serial_e";
 							phy_mode = "CPHY";
 							vc_id = "1";
@@ -606,8 +606,8 @@
 								reg = <0>;
 								ar0234_ar0234_out9: endpoint {
 									vc-id = <1>;
-									port-index = <4>;
-									bus-width = <2>;
+									port-index = <2>;
+									bus-width = <4>;
 									remote-endpoint = <&ar0234_csi_in9>;
 								};
 							};
@@ -630,7 +630,7 @@
 						use_sensor_mode_id = "true";
 						mode0 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
 							mclk_khz = "24000";
-							num_lanes = "2";
+							num_lanes = "4";
 							tegra_sinterface = "serial_e";
 							phy_mode = "CPHY";
 							vc_id = "2";
@@ -675,8 +675,8 @@
 								reg = <0>;
 								ar0234_ar0234_out10: endpoint {
 									vc-id = <2>;
-									port-index = <4>;
-									bus-width = <2>;
+									port-index = <2>;
+									bus-width = <4>;
 									remote-endpoint = <&ar0234_csi_in10>;
 								};
 							};
@@ -699,7 +699,7 @@
 						use_sensor_mode_id = "true";
 						mode0 {/*mode IMX424_MODE_3840X1080_CROP_30FPS*/
 							mclk_khz = "24000";
-							num_lanes = "2";
+							num_lanes = "4";
 							tegra_sinterface = "serial_e";
 							phy_mode = "CPHY";
 							vc_id = "3";
@@ -744,8 +744,8 @@
 								reg = <0>;
 								ar0234_ar0234_out11: endpoint {
 									vc-id = <3>;
-									port-index = <4>;
-									bus-width = <2>;
+									port-index = <2>;
+									bus-width = <4>;
 									remote-endpoint = <&ar0234_csi_in11>;
 								};
 							};
