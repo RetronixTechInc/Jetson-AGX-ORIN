@@ -57,6 +57,37 @@
 			};
 		};
 
+		/* BUS-ETHERNET */
+		ethernet@2310000 {
+			status = "okay";
+
+			phy-mode = "rgmii-id";
+            nvidia,phy-reset-gpio = <&gpio TEGRA234_MAIN_GPIO(G, 5) 0>;
+
+			phy-handle = <&mv88q2110_phy>;
+             
+			mdio {
+                compatible = "nvidia,eqos-mdio";
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				mv88q2110_phy: phy@1 {
+					compatible = "ethernet-phy-ieee802.3-c45";
+					reg = <0x0>;
+
+                    trylink = <9>;      /* 1 : enable link try; other : disable link try */
+                    baset1_mode = <9>;  /* 0 is master/100; 1 is master/1000; 2 is slave/100; 3 is slave/1000; other : HW define */
+                    tx-delay = <9>;     /* 0 : disalbe delay; 1 : enable dealy; other : HW define */
+                    rx-delay = <9>;     /* 0 : disalbe delay; 1 : enable dealy; other : HW define */
+                    nvidia,phy-rst-duration-usec = <10000>; /* usec */
+                    nvidia,phy-rst-pdelay-msec = <224>; /* msec */
+
+                    interrupt-parent = <&gpio>;
+                    interrupts = <TEGRA234_MAIN_GPIO(G, 4) IRQ_TYPE_LEVEL_LOW>;
+				};
+			}; 
+		};
+
 		mgbe0: ethernet@6800000 {
 			nvidia,mac-addr-idx = <0>;
 			nvidia,max-platform-mtu = <16383>;
