@@ -934,6 +934,8 @@ static int aqr107_resume(struct phy_device *phydev)
 	int err;
 	struct aqr107_priv *priv = phydev->priv;
 
+	aqr_apply_led_mode_cfg(phydev);//don't know why led regsiter be cleared, set again here
+	
 	if (priv->skip_lpm)
 		return 0;
 
