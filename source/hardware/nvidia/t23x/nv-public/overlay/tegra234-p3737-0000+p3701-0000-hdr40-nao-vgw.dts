@@ -184,6 +184,7 @@
 				hdr40-pin29 {
 					nvidia,pins = "can0_din_paa1";
 					nvidia,function = "can0";
+					nvidia,pull = <TEGRA_PIN_PULL_DOWN>;
 					nvidia,pin-label = "can0_din";
 					nvidia,tristate = <TEGRA_PIN_ENABLE>;
 					nvidia,enable-input = <TEGRA_PIN_ENABLE>;
@@ -191,6 +192,7 @@
 				hdr40-pin31 {
 					nvidia,pins = "can0_dout_paa0";
 					nvidia,function = "can0";
+					nvidia,pull = <TEGRA_PIN_PULL_UP>;
 					nvidia,pin-label = "can0_dout";
 					nvidia,tristate = <TEGRA_PIN_DISABLE>;
 					nvidia,enable-input = <TEGRA_PIN_DISABLE>;
