@@ -64,9 +64,8 @@
 				};
 			};
 #else
-			da7212: codec@1a {
+			da7212: audio-codec@1a {
 				compatible = "dlg,da7212";
-				status = "okay";
 
 				#sound-dai-cells = <0>;
 				#address-cells = <1>;

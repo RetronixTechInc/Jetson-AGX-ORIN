@@ -13,15 +13,33 @@
 
 	fragment-t234-p3737-0000-p3701-0000@0 {
 		target-path = "/";
-		board_config {
-			ids = ">=3737-0000-TS4", ">=3737-0000-RC1", ">=3737-0000-300";
-		};
+//		board_config {
+//			ids = ">=3737-0000-TS4", ">=3737-0000-RC1", ">=3737-0000-300";
+//		};
 		__overlay__ {
+			bus@0 {
+				i2c@31e0000 {
+					da7212: audio-codec@1a {
+						status = "okay";
+					};
+				};
+			};
+
 			sound {
+				nvidia-audio-card,widgets =
+					"Headphone", "DA7212 Headphone Jack",
+					"Microphone", "DA7212 Mic Jack";
+
+				nvidia-audio-card,routing =
+					"DA7212 Headphone Jack", "DA7212 HPL",
+					"DA7212 Headphone Jack", "DA7212 HPR",
+					"DA7212 MIC1",	"DA7212 Mic Jack";
+
 				nvidia-audio-card,dai-link@76 {
-//					link-name = "rt5640-playback";
+					link-name = "da7212-playback";
 					codec {
-						sound-dai = <&da7212 0>;
+						sound-dai = <&da7212>;
+						prefix = "DA7212";
 					};
 				};
 			};
