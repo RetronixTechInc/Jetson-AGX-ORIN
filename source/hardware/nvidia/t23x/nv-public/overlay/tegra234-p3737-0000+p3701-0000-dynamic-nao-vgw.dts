@@ -27,19 +27,19 @@
 
 			sound {
 				nvidia-audio-card,widgets =
-					"Headphone", "DA7212 Headphone Jack",
-					"Microphone", "DA7212 Mic Jack";
+					"Headphone", "DA72 Headphone Jack",
+					"Microphone", "DA72 Mic Jack";
 
 				nvidia-audio-card,routing =
-					"DA7212 Headphone Jack", "DA7212 HPL",
-					"DA7212 Headphone Jack", "DA7212 HPR",
-					"DA7212 MIC1",	"DA7212 Mic Jack";
+					"DA72 Headphone Jack", "DA72 HPL",
+					"DA72 Headphone Jack", "DA72 HPR",
+					"DA72 MIC1",	"DA72 Mic Jack";
 
 				nvidia-audio-card,dai-link@76 {
 					link-name = "da7212-playback";
 					codec {
 						sound-dai = <&da7212>;
-						prefix = "DA7212";
+						prefix = "DA72";
 					};
 				};
 			};
