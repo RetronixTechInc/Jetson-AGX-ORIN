@@ -27,44 +27,20 @@
 		target-path = "/";
 		__overlay__ {
 			tegra-capture-vi {
-				num-channels = <12>;
+				num-channels = <4>;
 				ports {
 					#address-cells = <1>;
 					#size-cells = <0>;
 					port@0 {
-						status = "disabled";
+						status = "okay";
 					};
 					port@1 {
-						status = "disabled";
+						status = "okay";
 					};
 					port@2 {
-						status = "disabled";
+						status = "okay";
 					};
 					port@3 {
-						status = "disabled";
-					};
-					port@4 {
-						status = "disabled";
-					};
-					port@5 {
-						status = "disabled";
-					};
-					port@6 {
-						status = "disabled";
-					};
-					port@7 {
-						status = "disabled";
-					};
-					port@8 {
-						status = "okay";
-					};
-					port@9 {
-						status = "okay";
-					};
-					port@10 {
-						status = "okay";
-					};
-					port@11 {
 						status = "okay";
 					};
 				};
@@ -72,43 +48,19 @@
 			bus@0 {
 				host1x@13e00000 {
 					nvcsi@15a00000 {
-						num-channels = <12>;
+						num-channels = <4>;
 						#address-cells = <1>;
 						#size-cells = <0>;
 						channel@0 {
-							status = "disabled";
+							status = "okay";
 						};
 						channel@1 {
-							status = "disabled";
+							status = "okay";
 						};
 						channel@2 {
-							status = "disabled";
+							status = "okay";
 						};
 						channel@3 {
-							status = "disabled";
-						};
-						channel@4 {
-							status = "disabled";
-						};
-						channel@5 {
-							status = "disabled";
-						};
-						channel@6 {
-							status = "disabled";
-						};
-						channel@7 {
-							status = "disabled";
-						};
-						channel@8 {
-							status = "okay";
-						};
-						channel@9 {
-							status = "okay";
-						};
-						channel@10 {
-							status = "okay";
-						};
-						channel@11 {
 							status = "okay";
 						};
 					};
@@ -128,46 +80,6 @@
 					};
 					ar0234_l@36 {
 						status = "okay";
-					};
-				};
-				i2c@31e0000 {
-					max96712_a@62 {
-						status = "disabled";
-					};
-					virtual_i2c_mux@50 {
-						status = "disabled";
-
-						i2c@0 {
-							bmi088_a@69 {
-								status = "disabled";
-							};
-							ar0234_a@30 {
-								status = "disabled";
-							};
-							ar0234_b@31 {
-								status = "disabled";
-							};
-						};
-						i2c@1 {
-							ar0234_c@32 {
-								status = "disabled";
-							};
-							ar0234_d@33 {
-								status = "disabled";
-							};
-							ar0234_e@34 {
-								status = "disabled";
-							};
-							ar0234_f@35 {
-								status = "disabled";
-							};
-							ar0234_g@36 {
-								status = "disabled";
-							};
-							ar0234_h@37 {
-								status = "disabled";
-							};
-						};
 					};
 				};
 			};
