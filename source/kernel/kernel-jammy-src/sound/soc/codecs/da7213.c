@@ -27,6 +27,10 @@
 #include <sound/da7213.h>
 #include "da7213.h"
 
+#define NV_PROJECT
+#ifdef NV_PROJECT
+#define CLK_TOLERANCE 100
+#endif
 
 /* Gain and Volume */
 static const DECLARE_TLV_DB_RANGE(aux_vol_tlv,
@@ -1151,6 +1155,10 @@ static bool da7213_volatile_register(struct device *dev, unsigned int reg)
 	}
 }
 
+#ifdef NV_PROJECT
+static int da7213_set_auto_pll(struct snd_soc_component *component, bool enable);
+#endif
+
 static int da7213_hw_params(struct snd_pcm_substream *substream,
 			    struct snd_pcm_hw_params *params,
 			    struct snd_soc_dai *dai)
@@ -1227,7 +1235,9 @@ static int da7213_hw_params(struct snd_pcm_substream *substream,
 	snd_soc_component_update_bits(component, DA7213_DAI_CTRL, DA7213_DAI_WORD_LENGTH_MASK,
 			    dai_ctrl);
 	snd_soc_component_write(component, DA7213_SR, fs);
-
+#ifdef NV_PROJECT
+	da7213_set_auto_pll(component, true);//nv will call set_bias_level early than hw_params, so I need to call set_auto_pll(true) again to feed correct out_rate
+#endif
 	return 0;
 }
 
@@ -1574,17 +1584,32 @@ static int da7213_set_auto_pll(struct snd_soc_component *component, bool enable)
 		/* PLL is not required for harmonic frequencies */
 		switch (da7213->out_rate) {
 		case DA7213_PLL_FREQ_OUT_90316800:
+#ifdef NV_PROJECT
+			if (abs(da7213->mclk_rate - 11289600) < CLK_TOLERANCE ||
+			    abs(da7213->mclk_rate - 22579200) < CLK_TOLERANCE ||
+			    abs(da7213->mclk_rate - 45158400) < CLK_TOLERANCE)
+#else
 			if (da7213->mclk_rate == 11289600 ||
 			    da7213->mclk_rate == 22579200 ||
 			    da7213->mclk_rate == 45158400)
+#endif
+			{
 				mode = DA7213_SYSCLK_MCLK;
+			}
 			break;
 		case DA7213_PLL_FREQ_OUT_98304000:
+#ifdef NV_PROJECT
+			if (abs(da7213->mclk_rate - 12288000) < CLK_TOLERANCE ||
+			    abs(da7213->mclk_rate - 24576000) < CLK_TOLERANCE ||
+			    abs(da7213->mclk_rate - 49152000) < CLK_TOLERANCE)
+#else
 			if (da7213->mclk_rate == 12288000 ||
 			    da7213->mclk_rate == 24576000 ||
 			    da7213->mclk_rate == 49152000)
+#endif
+			{
 				mode = DA7213_SYSCLK_MCLK;
-
+			}
 			break;
 		default:
 			return -1;
