@@ -2,7 +2,7 @@
 
 TARGET_PATH=$1
 ACTION=$2
-FILE_LIST=$(find . \( -name ".git" -o -name "deploy_files.sh" \) -prune -o -type f -print)
+FILE_LIST=$(find . \( -name ".git" -o -name "deploy_files.sh" -o -name "test_script" \) -prune -o -type f -print)
 
 print_usage() {
 	echo "deploy.sh target_path diff : list files which are different with target"
