@@ -2134,29 +2134,29 @@ static struct index_reg_8 max96724_colorbar[] = {
 	{DES_ADDR, 0x1053, 0x00},
 	{DES_ADDR, 0x1054, 0x00},
 	{DES_ADDR, 0x1055, 0x00},
-	{DES_ADDR, 0x1056, 0x11},
+	{DES_ADDR, 0x1056, 0x2f},
 	{DES_ADDR, 0x1057, 0xD0},
-	{DES_ADDR, 0x1058, 0x13},
-	{DES_ADDR, 0x1059, 0x0A},
+	{DES_ADDR, 0x1058, 0x41},
+	{DES_ADDR, 0x1059, 0x0e},
 	{DES_ADDR, 0x105A, 0xB0},
-	{DES_ADDR, 0x105B, 0x00},
-	{DES_ADDR, 0x105C, 0x77},
+	{DES_ADDR, 0x105B, 0x01},
+	{DES_ADDR, 0x105C, 0x3f},
 	{DES_ADDR, 0x105D, 0x10},
 	{DES_ADDR, 0x105E, 0x00},
 	{DES_ADDR, 0x105F, 0x20},
-	{DES_ADDR, 0x1060, 0x05},
+	{DES_ADDR, 0x1060, 0x0f},
 	{DES_ADDR, 0x1061, 0xD0},
-	{DES_ADDR, 0x1062, 0x03},		/* hs cnt */
-	{DES_ADDR, 0x1063, 0x38},
-	{DES_ADDR, 0x1064, 0x00},
-	{DES_ADDR, 0x1065, 0x77},
+	{DES_ADDR, 0x1062, 0x04},		/* hs cnt */
+	{DES_ADDR, 0x1063, 0x18},
+	{DES_ADDR, 0x1064, 0x01},
+	{DES_ADDR, 0x1065, 0x3f},
 	{DES_ADDR, 0x1066, 0xB0},
-	{DES_ADDR, 0x1067, 0x05},
+	{DES_ADDR, 0x1067, 0x0f},
 	{DES_ADDR, 0x1068, 0x00},
 	{DES_ADDR, 0x1069, 0x00},
 	{DES_ADDR, 0x106A, 0xF0},
-	{DES_ADDR, 0x106B, 0x03},
-	{DES_ADDR, 0x106C, 0x20},
+	{DES_ADDR, 0x106B, 0x04},
+	{DES_ADDR, 0x106C, 0x00},
 
 	{DES_ADDR, 0x106E, 0xff},	/* color A */
 	{DES_ADDR, 0x106F, 0x00},
@@ -2169,7 +2169,7 @@ static struct index_reg_8 max96724_colorbar[] = {
 	{DES_ADDR, 0x1075, 0x50},	/* chkr_rpt_b = 80 */
 	{DES_ADDR, 0x1076, 0x50},	/* chkr_alt = 80 */
 
-	{DES_ADDR, 0x1050, 0xfb},	/* gen_vs,gen_hs,gen_de, vtg[0:1] */
+	{DES_ADDR, 0x1050, 0x0b},	/* gen_vs=0,gen_hs=0,gen_de=0, vs_inv=0,hs_inv=1,de_inv=0, vtg[0:1]=3 */
 	{DES_ADDR, 0x1051, 0x10},	/* patgen_mode[5:4] = 0b1,checkerboard */
 	{0x00,AR0234_TABLE_END, 0x00},
 };
@@ -2244,6 +2244,7 @@ static const int ar0234_120fps[] = {
 	120,
 };
 static const struct camera_common_frmfmt ar0234_frmfmt[] = {
-	{{3840, 1024}, ar0234_30fps, 1, 0, AR0234_MODE_1920X1080_CROP_30FPS},
+	{{3840, 1024}, ar0234_30fps, 1, 0, 0},
+	{{1920, 1020}, ar0234_30fps, 1, 0, 1},
 };
 #endif /* __AR0234_I2C_TABLES__ */

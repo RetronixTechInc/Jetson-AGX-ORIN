@@ -974,10 +974,8 @@ static struct camera_common_pdata *ar0234_parse_dt(struct tegracam_device *tc_de
 }
 static int ar0234_set_mode(struct tegracam_device *tc_dev)
 {
-#ifdef LEOPARD_AR0234
 	struct ar0234 *priv = (struct ar0234 *)tegracam_get_privdata(tc_dev);
 	int err = 0;
-#endif
 	struct camera_common_data *s_data = tc_dev->s_data;
 	struct device *dev = tc_dev->dev;
 	const struct of_device_id *match;
@@ -994,8 +992,19 @@ static int ar0234_set_mode(struct tegracam_device *tc_dev)
 #endif
 	if (s_data->mode_prop_idx < 0)
 		return -EINVAL;
-	dev_err(dev, "%s: mode index:%d\n", __func__,s_data->mode_prop_idx);
+
 	/* Moved the sensor mode table write during probe time, to reduce Stream on time */
+
+	/* for mode switch */
+	dev_err(dev, "%s: mode index=%d\n", __func__,s_data->mode_prop_idx);
+	if( s_data->mode_prop_idx == 0 )
+	{
+		err = max96712_write_reg_Dser(DES_ADDR,	priv->channel, 0x1051, 0x00);
+	}
+	else if( s_data->mode_prop_idx == 1 )
+	{
+		err = ar0234_write_table(priv, mode_table[MAX96724_MODE_TEST_PATTERN]);
+	}
 
 	return 0;
 }

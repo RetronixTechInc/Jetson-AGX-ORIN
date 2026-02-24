@@ -229,6 +229,48 @@
 							default_exp_time = "16657";/* us */
 							embedded_metadata_height = "0";
 						};
+#if 1
+						mode1 {/* max96724 test pattern mode */
+							mclk_khz = "27360";
+							num_lanes = "4";
+							tegra_sinterface = "serial_c";
+							phy_mode = "CPHY";
+							vc_id = "0";
+							discontinuous_clk = "no";
+							dpcm_enable = "false";
+							cil_settletime = "0";
+							dynamic_pixel_bit_depth = "10";
+							csi_pixel_bit_depth = "10";	//"24";		//"16";
+							mode_type = "bayer";		//"rgb";	//"yuv";
+							pixel_phase = "grbg";		//"rgb888";	//"uyvy";
+							active_w = "1920";	//"3840";
+							active_h = "1020";	//"1024";
+							readout_orientation = "0";
+							line_length = "1920";//"3840";
+							inherent_gain = "1";
+							mclk_multiplier = "50";
+							pix_clk_hz = "1368000000";
+							serdes_pix_clk_hz = "1368000000";
+							gain_factor = "1000000";
+							min_gain_val = "1000000"; /* dB */
+							max_gain_val = "48000000"; /* dB */
+							step_gain_val = "1"; /* 0.1 */
+							default_gain = "1000000";
+							min_hdr_ratio = "1";
+							max_hdr_ratio = "1";
+							framerate_factor = "1000000";
+							min_framerate = "28700000";
+							max_framerate = "28700000";
+							step_framerate = "1000000";
+							default_framerate = "28700000";
+							exposure_factor = "1000000";
+							min_exp_time = "110"; /*us, 2 lines*/
+							max_exp_time = "166577";
+							step_exp_time = "1";
+							default_exp_time = "16657";/* us */
+							embedded_metadata_height = "0";
+						};
+#endif
 						ports {
 							#address-cells = <1>;
 							#size-cells = <0>;
